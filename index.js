@@ -1,6 +1,8 @@
+const { request } = require('express');
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
-
+app.use(bodyParser.urlencoded({ extended:false}));
 app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
@@ -18,6 +20,19 @@ app.get('/product',(req,res)=>{
         {name:'Minh',sex:false,age:'18'},
     ]
     res.render('product',{products});
+});
+
+app.get('/product/:id',(request,res)=>{
+    res.send(request.params.id);
+});
+
+app.get('/register',(req,res)=>{
+    res.render('register');
+});
+
+app.post('/register',(req,res)=>{
+    // console.log(req.body);
+    res.send(req.body.email);
 });
 
 app.get('/about',(req,res)=>{
