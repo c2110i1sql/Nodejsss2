@@ -1,0 +1,37 @@
+<%- include('layouts/header.ejs') %> 
+
+    <div class="container justify-content-center">
+        <div class="col-lg-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>NAME</th>
+                        <th>AGE</th>
+                        <th>SEX</th>
+                        <th>View Detail</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach((element,index) => { %>
+                        <tr>
+                            <td scope="row"><%=index %></td>
+                            <td><%= element.name %> </td>
+                            <td><%= element.age %> </td>
+                            <% if (element.sex) { %>
+                                <td>Nam</td>
+                            <% } else { %>
+                                <td>Nữ</td>
+                            <% } %>     
+                            <td><a href="" class="btn btn-info">Detail</a></td>        
+                        </tr>
+                    <% }) %>
+                   
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<%- include('layouts/footer.ejs') %> 
+      
